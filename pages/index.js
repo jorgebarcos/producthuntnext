@@ -1,15 +1,12 @@
+import Layout from '../components/layout/Layout'
 
-import Head from 'next/head'
-import styled from '@emotion/styled'
-
-const Heading = styled.h1`
-  color:red
-`;
 
 
 const Home = () => (
   <div>
-    <Heading>Inicio</Heading>
+      <Layout>
+        <h1>Inicio</h1>
+      </Layout>
   </div>
 )
 
