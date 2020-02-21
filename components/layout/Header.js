@@ -19,8 +19,8 @@ const Header = () => {
 
                     <button type="button">Cerrar Sesión</button>
 
-                    <Link href="/">Login</Link>
-                    <Link href="/">Crear Cuenta</Link>
+                    <Link href="/"><a>Login</a></Link>
+                    <Link href="/"><a>Crear Cuenta</a></Link>
                 </div>
             </div>
         </header>
