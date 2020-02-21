@@ -1,9 +1,17 @@
+
 import Head from 'next/head'
+import styled from '@emotion/styled'
+
+const Heading = styled.h1`
+  color:red
+`;
+
 
 const Home = () => (
-  <div className="container">
-    <h1>Inicio</h1>
+  <div>
+    <Heading>Inicio</Heading>
   </div>
 )
+
 
 export default Home
