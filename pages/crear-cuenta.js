@@ -1,4 +1,6 @@
-import Layout from '../components/layout/Layout'
+import {css} from '@emotion/core';
+import Layout from '../components/layout/Layout';
+import {Formulario, Campo, InputSubmit} from '../components/ui/Formulario'
 
 
 
@@ -6,10 +8,16 @@ const CrearCuenta = () => (
   <div>
       <Layout>
         <>
-          <h1>Crear Cuenta</h1>
-          <form>
-            <div>
-              <lable htmlFor="nombre">Nombre</lable>
+          <h1
+            css={css`
+            text-align: center;
+            margin-top: 5rem;
+
+            `}
+          >Crear Cuenta</h1>
+          <Formulario>
+            <Campo>
+              <label htmlFor="nombre">Nombre</label>
               <input 
                 type="text"
                 id="nombre"
@@ -17,9 +25,9 @@ const CrearCuenta = () => (
                 name="nombre"
 
               />
-            </div>
-            <div>
-              <lable htmlFor="email">Email</lable>
+            </Campo>
+            <Campo>
+              <label htmlFor="email">Email</label>
               <input 
                 type="email"
                 id="email"
@@ -27,9 +35,9 @@ const CrearCuenta = () => (
                 name="email"
                 
               />
-            </div>
-            <div>
-              <lable htmlFor="nombre">Password</lable>
+            </Campo>
+            <Campo>
+              <label htmlFor="nombre">Password</label>
               <input 
                 type="password"
                 id="password"
@@ -37,12 +45,12 @@ const CrearCuenta = () => (
                 name="password"
                 
               />
-            </div>
-            <input 
+            </Campo>
+            <InputSubmit 
               type="submit"
               value="Crear Cuenta"
             />
-          </form>
+          </Formulario>
         </>
       </Layout>
 
