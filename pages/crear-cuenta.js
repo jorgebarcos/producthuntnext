@@ -1,61 +1,79 @@
 import {css} from '@emotion/core';
 import Layout from '../components/layout/Layout';
-import {Formulario, Campo, InputSubmit} from '../components/ui/Formulario'
+import {Formulario, Campo, InputSubmit} from '../components/ui/Formulario';
+
+// Validaciones
+import useValidacion from '../hooks/useValidacion';
+import validarCrearCuenta from '../validacion/validarCrearCuenta';
+
+const STATE_INICIAL = {
+  nombre: '',
+  email: '',
+  password: ''
+}
+
+const CrearCuenta = () => {
+
+  const {valores, errores, submitForm, handleSubmit,
+    handleChange} = useValidacion(STATE_INICIAL, validarCrearCuenta, crearCuenta)
+
+  function crearCuenta() {
+    console.log('Creando Cuenta')
+  }
 
 
-
-const CrearCuenta = () => (
-  <div>
-      <Layout>
-        <>
-          <h1
-            css={css`
-            text-align: center;
-            margin-top: 5rem;
-
-            `}
-          >Crear Cuenta</h1>
-          <Formulario>
-            <Campo>
-              <label htmlFor="nombre">Nombre</label>
-              <input 
-                type="text"
-                id="nombre"
-                placeholder="Tu Nombre"
-                name="nombre"
-
+  return (
+    <>
+        <Layout>
+          <>
+            <h1
+              css={css`
+              text-align: center;
+              margin-top: 5rem;
+  
+              `}
+            >Crear Cuenta</h1>
+            <Formulario>
+              <Campo>
+                <label htmlFor="nombre">Nombre</label>
+                <input 
+                  type="text"
+                  id="nombre"
+                  placeholder="Tu Nombre"
+                  name="nombre"
+  
+                />
+              </Campo>
+              <Campo>
+                <label htmlFor="email">Email</label>
+                <input 
+                  type="email"
+                  id="email"
+                  placeholder="Tu Email"
+                  name="email"
+                  
+                />
+              </Campo>
+              <Campo>
+                <label htmlFor="nombre">Password</label>
+                <input 
+                  type="password"
+                  id="password"
+                  placeholder="Tu Password"
+                  name="password"
+                  
+                />
+              </Campo>
+              <InputSubmit 
+                type="submit"
+                value="Crear Cuenta"
               />
-            </Campo>
-            <Campo>
-              <label htmlFor="email">Email</label>
-              <input 
-                type="email"
-                id="email"
-                placeholder="Tu Email"
-                name="email"
-                
-              />
-            </Campo>
-            <Campo>
-              <label htmlFor="nombre">Password</label>
-              <input 
-                type="password"
-                id="password"
-                placeholder="Tu Password"
-                name="password"
-                
-              />
-            </Campo>
-            <InputSubmit 
-              type="submit"
-              value="Crear Cuenta"
-            />
-          </Formulario>
-        </>
-      </Layout>
-
-  </div>
-)
-
+            </Formulario>
+          </>
+        </Layout>
+  
+    </>
+  )
+}
 
 export default CrearCuenta
