@@ -15,7 +15,9 @@ const STATE_INICIAL = {
 const CrearCuenta = () => {
 
   const {valores, errores, submitForm, handleSubmit,
-    handleChange} = useValidacion(STATE_INICIAL, validarCrearCuenta, crearCuenta)
+    handleChange} = useValidacion(STATE_INICIAL, validarCrearCuenta, crearCuenta);
+
+  const { nombre, email, password } = valores;
 
   function crearCuenta() {
     console.log('Creando Cuenta')
@@ -23,17 +25,19 @@ const CrearCuenta = () => {
 
 
   return (
-    <>
+    <div>
         <Layout>
           <>
             <h1
               css={css`
               text-align: center;
               margin-top: 5rem;
-  
               `}
             >Crear Cuenta</h1>
-            <Formulario>
+            <Formulario
+            onSubmit={handleSubmit}
+            noValidate
+            >
               <Campo>
                 <label htmlFor="nombre">Nombre</label>
                 <input 
@@ -41,6 +45,8 @@ const CrearCuenta = () => {
                   id="nombre"
                   placeholder="Tu Nombre"
                   name="nombre"
+                  value={nombre}
+                  onChange={handleChange}
   
                 />
               </Campo>
@@ -51,6 +57,8 @@ const CrearCuenta = () => {
                   id="email"
                   placeholder="Tu Email"
                   name="email"
+                  value={email}
+                  onChange={handleChange}
                   
                 />
               </Campo>
@@ -61,6 +69,8 @@ const CrearCuenta = () => {
                   id="password"
                   placeholder="Tu Password"
                   name="password"
+                  value={password}
+                  onChange={handleChange}
                   
                 />
               </Campo>
@@ -71,8 +81,7 @@ const CrearCuenta = () => {
             </Formulario>
           </>
         </Layout>
-  
-    </>
+    </div>
   )
 }
 
